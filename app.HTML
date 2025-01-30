@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trust Lock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- App Container -->
+    <div class="app-container">
+        <!-- Navigation Bar -->
+        <div class="navbar">
+            <button class="nav-btn" onclick="showPage('home')">Home</button>
+            <button class="nav-btn" onclick="showPage('log')">Activity Log</button>
+            <button class="nav-btn" onclick="showPage('configure')">Configure</button>
+        </div>
+        <!-- Home Page -->
+        <div id="home" class="page">
+            <div class="card">
+                <h1>Trust Lock</h1>
+                <h2>Lock Status: <span id="lock-status"> </span></h2>
+                <button id="unlock-btn" class="btn blue-btn">Unlock Door</button>
+            </div>
+            <div class="card">
+                <h3>Fobs</h3>
+                <ul id="fingerprints">
+                    <li>Linyi</li>
+                    <li>Zhihan</li>
+                    <li>Guntas</li>
+                    <li>George</li>
+                    <li>Victor</li>
+                </ul>
+                <button class="btn black-btn">Add Fobs</button>
+                <button class="btn red-btn" id="emergency-btn">Emergency</button>
+            </div>
+        </div>
+        <!-- Activity Log Page -->
+        <div id="log" class="page hidden">
+            <div class="card">
+                <h1>Activity Log</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>User</th>
+                            <th>Method</th>
+                        </tr>
+                    </thead>
+                    <tbody id="log-entries">
+                        <!-- Log entries will be populated dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- Configuration Page -->
+        <div id="configure" class="page hidden">
+            <div class="card">
+                <h1>Configuration</h1>
+                <button class="btn black-btn">Add/Remove Users</button>
+            </div>
+            <div class="card">
+                <h3>Multi-Factor Authentication</h3>
+                <label><input type="checkbox"> Require FOB</label><br>
+                <label><input type="checkbox"> Require Fingerprint</label><br>
+                <label><input type="checkbox"> Require App Consent</label><br>
+            </div>
+            <div class="card">
+                <h3>Notification Settings</h3>
+                <label><input type="checkbox"> Notify Failed Attempts</label><br>
+                <label><input type="checkbox"> Notify Human Detected</label>
+            </div>
+        </div>
+    </div>
+    <!-- Emergency Modal (Popup) -->
+    <div id="emergency-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-emergency-btn">&times;</span>
+            <h2>Are you sure you want to call the authorities?</h2>
+            <button class="btn red-btn" id="confirm-emergency-btn">Yes, call authorities</button>
+            <button class="btn blue-btn" id="cancel-emergency-btn">Cancel</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
